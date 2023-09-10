@@ -13,11 +13,12 @@ app.use(express.json())
 
 const jwt = require("jsonwebtoken")
 
-const jwtGenerator = (userId) => {
+const jwtGenerator = (userId, user) => {
   // genera un token jwt para el usuario dado
   if (userId) {
     const payload = {
       user: userId,
+      name: user.name,
     }
     return jwt.sign(payload, JWT_SECRET, { expiresIn: "1hr" })
   }
@@ -29,7 +30,6 @@ const jwtGenerator = (userId) => {
 const bcrypt = require("bcrypt")
 
 const encrypt = async (password) => {
-  console.log("password", password)
   //  Encriptar password usand bCrypt
   const saltRounds = 10
   const salt = await bcrypt.genSalt(saltRounds)
@@ -50,7 +50,7 @@ app.post("/register", async (req, res) => {
 
   try {
     // 1. destructurar req.body para obtner (name, email, password)
-    const { name, email, password } = req.body
+    const { name, email, password, birthday } = req.body
 
 
     // 2. verificar si el usuario existe (si existe lanzar un error, con throw)
@@ -65,10 +65,10 @@ app.post("/register", async (req, res) => {
 
     // 4. agregar el usuario a la base de datos
     const newUser = await pool.query(
-      "INSERT INTO users(name, email, password) values($1, $2, $3) RETURNING *",
-      [name, email, bcryptPassword])
+      "INSERT INTO users(name, email, password, birthday) values($1, $2, $3, $4) RETURNING *",
+      [name, email, bcryptPassword, birthday])
 
-    token = jwtGenerator(newUser.rows[0].id)
+    token = jwtGenerator(newUser.rows[0].id, newUser.rows[0])
     res.json({ token })
   } catch (err) {
     console.log(err)
