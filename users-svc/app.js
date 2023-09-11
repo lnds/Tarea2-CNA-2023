@@ -83,7 +83,7 @@ app.post("/login", async (req, res) => {
     // 1. destructurizar req.body
     const { email, password } = req.body
 
-
+    console.log('login ', email)
     // 2. verificar si el usuario no existe (si no emitiremos un error)
     const user = await pool.query("SELECT * FROM users WHERE email = $1", [email])
 
@@ -99,7 +99,7 @@ app.post("/login", async (req, res) => {
     }
 
     // 4. entregar un token jwt 
-    const token = jwtGenerator(user.rows[0].id)
+    const token = jwtGenerator(user.rows[0].id, user.rows[0])
     res.json({ token })
   } catch (err) {
     console.log(err)

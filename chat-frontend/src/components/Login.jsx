@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react"
 import PropTypes from 'prop-types'
 import serverApiUrl from "./consts"
-
+import parseJwt from "../jwt"
 
 async function loginUser(credentials) {
     return fetch(`${serverApiUrl}/login`, {
@@ -14,18 +14,19 @@ async function loginUser(credentials) {
         .then(data => data.json())
 }
 
-const Login = ({ setToken }) => {
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
+const Login = ({ setToken, setUserName }) => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     const handleSubmit = async e => {
-        console.log('handle submit')
         e.preventDefault();
         const token = await loginUser({
             email,
             password
         });
         setToken(token);
+        const user = parseJwt(token.token);
+        setUserName(user.name);
     }
 
     return (
