@@ -23,7 +23,7 @@ export default class TextBar extends Component {
             <div className='textbar'>
                 <input className='textbar-input' type='text' ref={this.input} onKeyDown={sendMessageIfEnter} />
                 <button className='textbar-send' onClick={sendMessage}>
-                    Send
+                    Enviar
                 </button>
             </div>
         )

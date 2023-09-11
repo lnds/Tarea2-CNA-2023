@@ -5,7 +5,7 @@ import './MessageWindow.css'
 
 const Message = ({ text, username, self }) => (
     <div className={'message' + (self ? ' message-self' : '')}>
-        <div className='message-username'>USR: {username}</div>
+        <div className='message-username'>{username}</div>
         <div className='message-text'>{text}</div>
     </div>
 )
