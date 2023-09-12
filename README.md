@@ -61,10 +61,22 @@ Prueba la conexión registrandote como usuario usando la interfaz. Si todo está
 
 # Actividades y Preguntas
 
-1. Modifica el Payload del token JWT para incluir la fecha de nacimiento del usuario.
+1. Modifica el Payload del token JWT para incluir la fecha de nacimiento del usuario. Incluye el código que modificaste como respuesta.
 2. Ejecuta el endpoint `login` usando la herramienta `YARC`, obtén el token JWT y verifica en la herramienta [JWT Debugger](https://jwt.io) que el token incliye la fecha de nacimiento. Copia el token en base 64 y decodificado como respuesta a esta actividad.
-3. El diseño de la aplicación tiene una vulnerabilidad relacionada con el acceo al servidor WebSockets, ¿puedes indicar cuál es? ¿Cómo la solucionarías?
+3. El diseño de la aplicación tiene una vulnerabilidad relacionada con el acceso al servidor WebSockets, ¿puedes indicar cuál es? ¿Cómo la solucionarías?
 4. ¿Que habría que hacer para validar que los usuarios de esta aplicación fueran mayores de 13 años? ¿Dónde controlarías esa condición? ¿Qué habría que agregar en el frontend?
+
+Colocar el nombre de los integrantes del grupo y las respuestas al final de este archivo.
+
+# Integrantes del Grupo
+
+# Respuesta 1
+
+# Respuesta 2
+
+# Respuesta 3
+
+# Respuesta 4
 
 
 
