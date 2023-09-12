@@ -2,8 +2,8 @@ import React, { Fragment, useState } from "react"
 import PropTypes from 'prop-types'
 import serverApiUrl from "./consts"
 import parseJwt from "../jwt"
-import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
-
+import { Button, Modal, Label, TextInput } from 'flowbite-react';
+import Register from './Register'
 
 async function loginUser(credentials) {
     return fetch(`${serverApiUrl}/login`, {
@@ -19,6 +19,7 @@ async function loginUser(credentials) {
 const Login = ({ setToken, setUserName }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [openModal, setOpenModal] = useState('');
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -74,10 +75,18 @@ const Login = ({ setToken, setUserName }) => {
                         <Button type="submit">
                             Ingresar
                         </Button>
+                        <a href="#" onClick={() => setOpenModal('default')}>Register</a>
+                        <Modal show={openModal === 'default'} onClose={() => setOpenModal(undefined)}>
+                            <Modal.Header>Register User</Modal.Header>
+                            <Modal.Body>
+                                <Register setToken={setToken} setUserName={setUserName} />
+                            </Modal.Body>
+
+                        </Modal>
                     </form>
                 </div>
             </section>
-        </Fragment>
+        </Fragment >
     )
 }
 
