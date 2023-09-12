@@ -1,6 +1,7 @@
 # Tarea2 CNA 2023
 
 Haga un fork de este repo.
+Envía un Pull Request con las repuestas.
 
 # Paso 1
 
