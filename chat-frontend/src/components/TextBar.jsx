@@ -16,11 +16,16 @@ const TextBar = (props) => {
     }
 
     return (
-        <div className='textbar'>
-            <Textarea ref={input} onKeyDown={sendMessageIfEnter} />
-            <Button onClick={sendMessage} outline>
-                Enviar
-            </Button>
+        <div className='grid grid-cols-3 gap-1'>
+            <div className="col-span-2">
+                <Textarea ref={input} onKeyDown={sendMessageIfEnter} />
+            </div>
+            <div>
+                <Button onClick={sendMessage} outline>
+                    Enviar
+                </Button>
+            </div>
+
         </div>
     )
 }
