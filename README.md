@@ -30,8 +30,9 @@ Crear los siguientes secretos:
 - JWT_SECRET: colocar un valor aleatorio, esta es la llave para calcular el HMAC de JWT.
 
 
-Levantar el servicio con el comando:
+Levantar el servicio con los comandos:
 
+        npm install
         node app.js
 
 Guarda en algún lado la url que publica Replit, lo vas a usar en el paso 4.
