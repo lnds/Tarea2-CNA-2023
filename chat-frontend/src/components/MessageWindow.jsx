@@ -1,32 +1,32 @@
 // src/MessageWindow.jsx
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import './MessageWindow.css'
+import { Timeline } from 'flowbite-react';
 
 const Message = ({ text, username, self }) => (
-    <div className={'message' + (self ? ' message-self' : '')}>
-        <div className='message-username'>{username}</div>
-        <div className='message-text'>{text}</div>
-    </div>
+    <Timeline.Item>
+        <Timeline.Point />
+        <Timeline.Content></Timeline.Content>
+        <Timeline.Title>{username}</Timeline.Title>
+        <Timeline.Body>{text}</Timeline.Body>
+    </Timeline.Item>
 )
 
-export default class MessageWindow extends React.Component {
-    constructor(props) {
-        super(props)
-        this.messageWindow = React.createRef()
-    }
-    componentDidUpdate() {
-        const messageWindow = this.messageWindow.current
-        messageWindow.scrollTop = messageWindow.scrollHeight - messageWindow.clientHeight
-    }
-    render() {
-        const { messages = [], username } = this.props
-        return (
-            <div className='message-window' ref={this.messageWindow}>
-                {messages.map((msg, i) => {
-                    return <Message key={i} text={msg.text} username={msg.username} self={username === msg.username} />
-                })}
-            </div>
-        )
-    }
+const MessageWindow = ({ messages = [], username }) => {
+    let messageWindow = React.createRef()
+
+    useEffect(() => {
+        // const messageWindow = messageWindow.current
+        // messageWindow.scrollTop = messageWindow.scrollHeight - messageWindow.clientHeight
+    })
+    return (
+        <Timeline>
+            {messages.map((msg, i) => {
+                return <Message key={i} text={msg.text} username={msg.username} self={username === msg.username} />
+            })}
+        </Timeline>
+    )
 }
+
+export default MessageWindow

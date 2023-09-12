@@ -1,31 +1,27 @@
 import React, { Component } from 'react'
+import { Textarea, Button } from 'flowbite-react';
 import './TextBar.css'
 
-export default class TextBar extends Component {
-    constructor(props) {
-        super(props)
-        this.input = React.createRef()
+const TextBar = (props) => {
+    let input = React.createRef()
+
+    const sendMessage = () => {
+        props.onSend && props.onSend(input.current.value)
+        input.current.value = ''
     }
-    sendMessage() {
-        this.props.onSend && this.props.onSend(this.input.current.value)
-        this.input.current.value = ''
-    }
-    sendMessageIfEnter(e) {
+    const sendMessageIfEnter = (e) => {
         if (e.keyCode === 13) {
-            this.sendMessage()
+            sendMessage()
         }
     }
-    render() {
-        const sendMessage = this.sendMessage.bind(this)
-        const sendMessageIfEnter = this.sendMessageIfEnter.bind(this)
 
-        return (
-            <div className='textbar'>
-                <input className='textbar-input' type='text' ref={this.input} onKeyDown={sendMessageIfEnter} />
-                <button className='textbar-send' onClick={sendMessage}>
-                    Enviar
-                </button>
-            </div>
-        )
-    }
+    return (
+        <div className='textbar'>
+            <Textarea ref={input} onKeyDown={sendMessageIfEnter} />
+            <Button onClick={sendMessage} outline>
+                Enviar
+            </Button>
+        </div>
+    )
 }
+export default TextBar
