@@ -53,13 +53,20 @@ Guarda el valor de la url que publica replit, también lo usarás en el paso 4
 
 Crear el tercer Replit con Node.JS y copiar el contenido de la carpeta `chat-frontend`.
 
+IMPORTANTE:
+
+En este caso hay que hacer lo siguiente en la shell:
+
+        git clone https://github.com/lnds/Tarea2-CNA-2023.git
+
+        cp -R Tarea2-CNA-2023/chat-frontend/* .
+
+
 Modificar el archivo `src/components/const.js` cambia el valor del string `serverApiUrl` en la linea 1 de este archivo por el valor de la URL publicada en el paso 2.
 
 Modificar el archivo `src/websocket.js` cambiando el valor del string `host` con el valor de la URL publicada en el paso 3.
 
-Levanta la aplicación usando el comando:
-
-            npm run dev
+Levanta la aplicación presionado el botón RUN de replit.
 
 Prueba la conexión registrandote como usuario usando la interfaz. Si todo está ok puedes chatear.
 
