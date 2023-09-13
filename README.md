@@ -45,6 +45,7 @@ Acá también hay que crear el secret `PORT`, puede tener cualquier valor.
 
 Levantar el servicio con el comando:
 
+        npm install
         node index.js
 
 Guarda el valor de la url que publica replit, también lo usarás en el paso 4
@@ -74,8 +75,9 @@ Prueba la conexión registrandote como usuario usando la interfaz. Si todo está
 
 1. Modifica el Payload del token JWT para incluir la fecha de nacimiento del usuario. Incluye el código que modificaste como respuesta.
 2. Ejecuta el endpoint `login` usando la herramienta `YARC`, obtén el token JWT y verifica en la herramienta [JWT Debugger](https://jwt.io) que el token incliye la fecha de nacimiento. Copia el token en base 64 y decodificado como respuesta a esta actividad.
-3. El diseño de la aplicación tiene una vulnerabilidad relacionada con el acceso al servidor WebSockets, ¿puedes indicar cuál es? ¿Cómo la solucionarías?
-4. ¿Que habría que hacer para validar que los usuarios de esta aplicación fueran mayores de 13 años? ¿Dónde controlarías esa condición? ¿Qué habría que agregar en el frontend?
+   
+4. El diseño de la aplicación tiene una vulnerabilidad relacionada con el acceso al servidor WebSockets, ¿puedes indicar cuál es? ¿Cómo la solucionarías?
+5. ¿Que habría que hacer para validar que los usuarios de esta aplicación fueran mayores de 13 años? ¿Dónde controlarías esa condición? ¿Qué habría que agregar en el frontend?
 
 Colocar el nombre de los integrantes del grupo y las respuestas al final de este archivo.
 
