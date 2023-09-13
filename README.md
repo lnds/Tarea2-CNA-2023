@@ -51,7 +51,7 @@ Guarda el valor de la url que publica replit, también lo usarás en el paso 4
 
 # Paso 4
 
-Crear el tercer Replit con Node.JS y copiar el contenido de la carpeta `chat-frontend`.
+Crear el tercer Replit con `REACT JavaScript` y copiar el contenido de la carpeta `chat-frontend`.
 
 IMPORTANTE:
 
