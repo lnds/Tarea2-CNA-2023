@@ -41,6 +41,8 @@ Guarda en algún lado la url que publica Replit, lo vas a usar en el paso 4.
 
 Crear un segundo Replit, con node.js copia acá el contenido del directorio `ws-server`.
 
+Acá también hay que crear el secret `PORT`, puede tener cualquier valor.
+
 Levantar el servicio con el comando:
 
         node index.js
