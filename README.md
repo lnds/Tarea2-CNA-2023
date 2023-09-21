@@ -109,7 +109,17 @@ HMACSHA256(
 ) secret base64 encoded
 
 # Respuesta 3
-
+La implementación de websockets requiere considerar varias características y elementos, entre ellos: conexiones seguras, 
+autenticación de usuarios, autorización, validación de entrada, entre otros. Sin embargo, se recomienda implementar mayor seguridad 
+para garatinzar la autenticacion y la seguridad de las comunicaciones. 
+¿Qué se sugiere implementar? el uso de token. El token se podrá implementar tanto para identificar y autorizar a un usuario o una aplicación en un servidor.
+Por ejemplo, en nuestro caso: 
+1. Generamos el token: se puede generar en el servidor y se envía luego al usuario cliente.
+2. Envío del token: el usuario cliente recibe el token y puede ser almacenado en una cookie o de manera local en el navegador.
+3. Envío de token a las conexiones de websockets: el cliente establece una conexión WebSocket con el servidor y luego puede enviar el token en un mensaje
+   de apertura o encabezado personalizado para que el servidor autentique al usuario.
+4. Validación del token: en el servidor de websockets, se debe validar el token recibido por el cliente y verificar que sea válido.
+Se debe considerar también el manejo de errores, renovación de tokens, entre otros aspectos.
 # Respuesta 4
 
 
