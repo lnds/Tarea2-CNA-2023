@@ -95,6 +95,18 @@ Payload:
 }
 
 # Respuesta 2
+PAYLOAD:DATA
+{
+  "user": "b069bb51-ff70-45fa-a1d7-2d715bdbc0c9",
+  "name": "vivisol",
+  "iat": 1695257711,
+  "exp": 1695261311
+}
+HMACSHA256(
+  base64UrlEncode(header) + "." +
+  base64UrlEncode(payload),
+  your-256-bit-secret
+) secret base64 encoded
 
 # Respuesta 3
 
