@@ -84,8 +84,15 @@ Prueba la conexión registrandote como usuario usando la interfaz. Si todo está
 Colocar el nombre de los integrantes del grupo y las respuestas al final de este archivo.
 
 # Integrantes del Grupo
-
+Viviana Poblete López
 # Respuesta 1
+Payload:
+{"name":"vivisol", 
+"email":"vivisol@gmail.com", "password":"pass1234",
+"fechaNac":"1984-02-08"}
+
+{"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYjA2OWJiNTEtZmY3MC00NWZhLWExZDctMmQ3MTViZGJjMGM5IiwibmFtZSI6InZpdmlzb2wiLCJpYXQiOjE2OTUyNTc3MTEsImV4cCI6MTY5NTI2MTMxMX0.eOclqeGXh9TcCDViHkfq4WMTrErFIy6ZEPYx_W6nm90"
+}
 
 # Respuesta 2
 
