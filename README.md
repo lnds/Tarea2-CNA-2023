@@ -98,7 +98,14 @@ Este es el token generado en el endpoint login
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiOTNjZWVkZDEtZjU4Yy00MGFkLWE0ZmMtODViOWQzZGExOTBlIiwibmFtZSI6InBlcGUiLCJpYXQiOjE2OTU0MzI3NzAsImV4cCI6MTY5NTQzNjM3MH0.A_qr8cg_vbrbA575-R3r_2GSLBe6iPRY5uK_K3XrYbE"
 }
-No viene la fecha de nacimiento
+No viene la fecha de nacimiento, viene esta pYayload de respuesta:
+
+{
+  "user": "93ceedd1-f58c-40ad-a4fc-85b9d3da190e",
+  "name": "pepe",
+  "iat": 1695432770,
+  "exp": 1695436370
+}
 
 # Respuesta 3
 
