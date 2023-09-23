@@ -99,6 +99,8 @@ No viene la fecha de nacimiento
 
 # Respuesta 3
 
+Creemos que hay un problema con los CORS, dado que cualquier url puede establecer comunicación con el websocket, si lo subieramos a un API manager podríamos establecer solo las url con permisos para acceder a él.
+
 
 # Respuesta 4
 Habría que controlar en el endpoint register que la fecha de nacimiento, restado con la fecha actual, sea mayor a 13.
