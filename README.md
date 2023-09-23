@@ -85,6 +85,9 @@ Colocar el nombre de los integrantes del grupo y las respuestas al final de este
 
 # Integrantes del Grupo
 
+Nancy Bernal
+Felipe Pérez
+
 # Respuesta 1
 
 {"name":"pepe","email":"felipez@algo.cl","password":"pass123","birthday":"01-01-2000"}
