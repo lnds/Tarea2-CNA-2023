@@ -171,6 +171,7 @@ Colocar el nombre de los integrantes del grupo y las respuestas al final de este
 
 Integrantes:
 - Ignacio J. González P.
+- Felix Cifuentes Cid.
 
 # Integrantes del Grupo
 
