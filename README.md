@@ -88,8 +88,7 @@ Jazna Meza Hidalgo
 Ricardo Pino Aranda
 
 # Respuesta 1
-Código modificado
-
+```
 const jwtGenerator = (userId, user) => {
   // genera un token jwt para el usuario dado
   if (userId) {
@@ -102,9 +101,11 @@ const jwtGenerator = (userId, user) => {
   }
   return "invalid token"
 }
+```
 
 # Respuesta 2
 El token verificado se encuentra en el archivo jwt_verificado.png.
+![](jwt_verificado.png) 
 
 # Respuesta 3
 La vulnerabilidad es que no se usar ws sobre HTTPS, en otras palabras no se puede usar WebSocket sobre HTTPS, se puede usar sobre TLS, para solucionar esta vulnerabilidad Se debería usar “wss://“ en la URI.
