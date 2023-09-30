@@ -1,4 +1,4 @@
-# Tarea2 CNA 2023
+# Tarea2 CNA 2023 --> Marco Aguilar -- Rocío Contreras Águila
 
 Haga un fork de este repo.
 Envía un Pull Request con las repuestas.
