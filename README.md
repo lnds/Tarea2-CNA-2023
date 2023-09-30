@@ -84,17 +84,35 @@ Prueba la conexión registrandote como usuario usando la interfaz. Si todo está
 Colocar el nombre de los integrantes del grupo y las respuestas al final de este archivo.
 
 # Integrantes del Grupo
-
+Yasna León Foitzick
 # Respuesta 1
+const jwtGenerator = (userId, user) => {
+  // genera un token jwt para el usuario dado
+  if (userId) {
+    const payload = {
+      user: userId,
+      name: user.name,
+      birthday: user.birthday,
+    }
+    return jwt.sign(payload, JWT_SECRET, { expiresIn: "1hr" })
+  }
+  return "invalid token"
+}
 
 # Respuesta 2
+![](JWT-yasna.png)  
 
 # Respuesta 3
 
+1. el protocolo utilizado es ( ws ) que es inseguro
+  la protocolo recomedado es ( wss )    const ws = new window.WebSocket('wss://' + host + '/chat') || {}
+
+2. En el servivio de websocket no esta implemetada la autorización la que debe utilizar el token para validar el usuario 
+
 # Respuesta 4
-
-
-
+1. en el archivo Register.jsx de la interfaz se debe agregar en el formulario el ingreso de la fecha de nacimiento
+2. esta fecha de nacimiento se debe validar en el metodo handleSubmit para asegurar el registro de usuario solo aquellos que el calculo
+    de la fecha obtenga una  edad superior a 13 años
 
 
 
