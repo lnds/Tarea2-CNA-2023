@@ -85,14 +85,36 @@ Colocar el nombre de los integrantes del grupo y las respuestas al final de este
 
 # Integrantes del Grupo
 
+Nancy Bernal
+Felipe Pérez
+
 # Respuesta 1
+
+{"name":"pepe","email":"felipez@algo.cl","password":"pass123","birthday":"01-01-2000"}
 
 # Respuesta 2
 
+Este es el token generado en el endpoint login
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiOTNjZWVkZDEtZjU4Yy00MGFkLWE0ZmMtODViOWQzZGExOTBlIiwibmFtZSI6InBlcGUiLCJpYXQiOjE2OTU0MzI3NzAsImV4cCI6MTY5NTQzNjM3MH0.A_qr8cg_vbrbA575-R3r_2GSLBe6iPRY5uK_K3XrYbE"
+}
+No viene la fecha de nacimiento, viene esta pYayload de respuesta:
+
+{
+  "user": "93ceedd1-f58c-40ad-a4fc-85b9d3da190e",
+  "name": "pepe",
+  "iat": 1695432770,
+  "exp": 1695436370
+}
+
 # Respuesta 3
 
-# Respuesta 4
+Creemos que hay un problema con los CORS, dado que cualquier url puede establecer comunicación con el websocket, si lo subieramos a un API manager podríamos establecer solo las url con permisos para acceder a él.
 
+
+# Respuesta 4
+Habría que controlar en el endpoint register que la fecha de nacimiento, restado con la fecha actual, sea mayor a 13.
+Agregaríamos un control web en el formulario de registro para que se solicite la fecha de nacimiento
 
 
 
