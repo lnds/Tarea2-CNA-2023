@@ -84,15 +84,50 @@ Prueba la conexión registrandote como usuario usando la interfaz. Si todo está
 Colocar el nombre de los integrantes del grupo y las respuestas al final de este archivo.
 
 # Integrantes del Grupo
+Viviana Poblete López
 
 # Respuesta 1
+Payload:
+{"name":"vivisol", 
+"email":"vivisol@gmail.com", "password":"pass1234",
+"fechaNac":"1984-02-08"}
+
+{"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYjA2OWJiNTEtZmY3MC00NWZhLWExZDctMmQ3MTViZGJjMGM5IiwibmFtZSI6InZpdmlzb2wiLCJpYXQiOjE2OTUyNTc3MTEsImV4cCI6MTY5NTI2MTMxMX0.eOclqeGXh9TcCDViHkfq4WMTrErFIy6ZEPYx_W6nm90"
+}
 
 # Respuesta 2
+PAYLOAD:DATA
+{
+  "user": "b069bb51-ff70-45fa-a1d7-2d715bdbc0c9",
+  "name": "vivisol",
+  "iat": 1695257711,
+  "exp": 1695261311
+}
+HMACSHA256(
+  base64UrlEncode(header) + "." +
+  base64UrlEncode(payload),
+  your-256-bit-secret
+) secret base64 encoded
 
 # Respuesta 3
+ El diseño de la aplicación tiene una vulnerabilidad relacionada con el acceso al servidor WebSockets, ¿puedes indicar cuál es? ¿Cómo la solucionarías?
+ 
+La implementación de websockets requiere considerar varias características y elementos, entre ellos: conexiones seguras, 
+autenticación de usuarios, autorización, validación de entrada, entre otros. Sin embargo, se recomienda implementar mayor seguridad 
+para garatinzar la autenticacion y la seguridad de las comunicaciones. 
+¿Qué se sugiere implementar? el uso de token. El token se podrá implementar tanto para identificar y autorizar a un usuario o una aplicación en un servidor.
+Por ejemplo, en nuestro caso: 
+1. Generamos el token: se puede generar en el servidor y se envía luego al usuario cliente.
+2. Envío del token: el usuario cliente recibe el token y puede ser almacenado en una cookie o de manera local en el navegador.
+3. Envío de token a las conexiones de websockets: el cliente establece una conexión WebSocket con el servidor y luego puede enviar el token en un mensaje
+   de apertura o encabezado personalizado para que el servidor autentique al usuario.
+4. Validación del token: en el servidor de websockets, se debe validar el token recibido por el cliente y verificar que sea válido.
+Se debe considerar también el manejo de errores, renovación de tokens, entre otros aspectos.
 
 # Respuesta 4
-
+¿Que habría que hacer para validar que los usuarios de esta aplicación fueran mayores de 13 años? ¿Dónde controlarías esa condición? ¿Qué habría que agregar en el frontend?
+1. En users-svc implementar una regla de negocio, al momento de registrarse  (app.post("/register", async (req, res) que verifique con la información ingresada por parte del usuario, si tiene o no el mínimo requerido.
+2. En el front-end, implementar en el formulario de registro un elemento de tipo calendario para que el usuario ingrese su fecha de nacimiento. A través de react, se debería importar una biblioteca, "react-big-calendar", creando y configurando el componente necesario para ello. 
 
 
 
