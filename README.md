@@ -83,16 +83,40 @@ Prueba la conexión registrandote como usuario usando la interfaz. Si todo está
 
 Colocar el nombre de los integrantes del grupo y las respuestas al final de este archivo.
 
-# Integrantes del Grupo
+# Integrante del Grupo
+
+  ### Kevin Beltran
 
 # Respuesta 1
+
+```javascript
+  const jwtGenerator = (userId, user) => {
+  // genera un token jwt para el usuario dado
+  if (userId) {
+    const payload = {
+      user: userId,
+      name: user.name,
+      //Fecha Nacimiento incluida
+      birthday: user.birthday
+    }
+    return jwt.sign(payload, JWT_SECRET, { expiresIn: "30mm" })
+  }
+  return "invalid token"
+}
+```
 
 # Respuesta 2
 
 # Respuesta 3
 
+Posible vulneravilidad: El código no verifica la fuente del cliente WebSocket y no utiliza HTTPS.
+
+Solucion: Implementar validación de origen utilizando la cabecera Origin en las solicitudes WebSocket y comparándola con una lista blanca de orígenes permitidos. Usar HTTPS en lugar de HTTP para proteger las comunicaciones entre el cliente y el servidor 
+
 # Respuesta 4
 
+En el archivo "Register.jsx" se debe agregar un codigo en la capa de front donde muestre un mensaje cuando se seleccione una fecha invalida y que en comparacion a la actual arroje que es menor de 13.
+En el back (archivo app.js) hacer un codigo logico donde si la comparacion entre fecha actual e ingresada es mayor a 13, pueda efectuar el registro. Caso contrario, invalidar el registro y enviar un mensaje al usuario.
 
 
 
