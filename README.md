@@ -37,6 +37,12 @@ Levantar el servicio con los comandos:
 
 Guarda en algún lado la url que publica Replit, lo vas a usar en el paso 4.
 
+Respuesta: en yark: token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNzY1OGVkNTEtMTVmZi00NTIzLTk2YjQtZjg4NjQ0NDZhMjdiIiwibmFtZSI6IlJvY2lvIENvbnRyZXJhcyBBIiwiaWF0IjoxNjk2Mjc1NTI3LCJleHAiOjE2OTYyNzkxMjd9.W8sJDUnvh8Oxphf55BnLsecsJ7h_9jsXn4Af41t5w6E
+
+URL: servidordeusuarios.rociocontrerasa.repl.co
+
+BD: postgres://paxpugvz:N-JSicmHAJpA9OiG2I9FyOjKkFYAoOiK@silly.db.elephantsql.com/paxpugvz
+
 # Paso 3
 
 Crear un segundo Replit, con node.js copia acá el contenido del directorio `ws-server`.
