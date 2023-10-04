@@ -84,18 +84,31 @@ Prueba la conexión registrandote como usuario usando la interfaz. Si todo está
 Colocar el nombre de los integrantes del grupo y las respuestas al final de este archivo.
 
 # Integrantes del Grupo
+Jazna Meza Hidalgo
+Ricardo Pino Aranda
 
 # Respuesta 1
+```
+const jwtGenerator = (userId, user) => {
+  // genera un token jwt para el usuario dado
+  if (userId) {
+    const payload = {
+      user: userId,
+      name: user.name,
+      birthday: user.birthday
+    }
+    return jwt.sign(payload, JWT_SECRET, { expiresIn: "1hr" })
+  }
+  return "invalid token"
+}
+```
 
 # Respuesta 2
+El token verificado se encuentra en el archivo jwt_verificado.png.
+![](jwt_verificado.png) 
 
 # Respuesta 3
+La vulnerabilidad es que no se usar ws sobre HTTPS, en otras palabras no se puede usar WebSocket sobre HTTPS, se puede usar sobre TLS, para solucionar esta vulnerabilidad Se debería usar “wss://“ en la URI.
 
 # Respuesta 4
-
-
-
-
-
-
-
+Para validar la regla de negocio donde la edad debe ser mayor a 13 años codificaría un flujo de control (IF) en el metodo register para comparar la diferencia en años entre el Birthday y la fecha actual al momento del registro, la cual debe ser mayor a 13. Además se debería comparar la diferencia en años entre el Birthday del registro asociado al usuario que se está logeando con la fecha actual. Esto en el caso de que ya exista un Birthday registrado anteriormente en el usario, este cambio debería ser realizado en el login BackEnd. En el Frond End se debería agregar en el formulario el campo Birthday para solicitar el ingreso de la fecha de nacimiento y posteriormente realizar la validación.
