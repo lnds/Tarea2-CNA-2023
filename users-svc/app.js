@@ -11,31 +11,34 @@ app.use(express.json())
 
 // JWT GENERATOR
 
-const jwt = require("jsonwebtoken")
 
-const jwtGenerator = (userId, user) => {
+
+const jwtGenerator = (userId, birthday) => {
   // genera un token jwt para el usuario dado
   if (userId) {
     const payload = {
       user: userId,
-      name: user.name,
+      birthdate: birthday  // Aquí incluimos la fecha de nacimiento
     }
     return jwt.sign(payload, JWT_SECRET, { expiresIn: "1hr" })
   }
   return "invalid token"
 }
 
+
 // ENCRYPT PASSWORD
 
 const bcrypt = require("bcrypt")
 
 const encrypt = async (password) => {
-  //  Encriptar password usand bCrypt
-  const saltRounds = 10
-  const salt = await bcrypt.genSalt(saltRounds)
-  const bcryptPassword = await bcrypt.hash(password, salt)
-  return bcryptPassword
+  // Encriptar password usando bCrypt
+  const saltRounds = 10;
+  const salt = await bcrypt.genSalt(saltRounds);
+  const bcryptPassword = await bcrypt.hash(password, salt);  // Cambio aquí
+  return bcryptPassword;
 }
+
+
 
 
 // CHECK PASSWORD
@@ -46,35 +49,38 @@ const compare = async (plainPassword, password) => {
 
 // registrar usuario
 app.post("/register", async (req, res) => {
-  // #swagger.description = 'Endpoint para registrar un nuevo usuario en la  plataforma'
-
+  // ...
   try {
-    // 1. destructurar req.body para obtner (name, email, password)
-    const { name, email, password, birthday } = req.body
+    //...
+    const { name, email, password, birthday } = req.body;
 
-
-    // 2. verificar si el usuario existe (si existe lanzar un error, con throw)
-    const user = await pool.query("SELECT * FROM users WHERE email = $1", [email])
-
-    if (user.rows.length !== 0) {
-      return res.status(401).send("Usuario ya existe")
+    if (!password || password.trim() === "") {
+      return res.status(400).send("La contraseña es obligatoria.");
     }
 
-    // 3. Encriptar password usand bCrypt
-    bcryptPassword = await encrypt(password)
+    // 2. verificar si el usuario existe (si existe lanzar un error, con throw)
+    const user = await pool.query("SELECT * FROM users WHERE email = $1", [email]);
+
+    if (user.rows.length !== 0) {
+      return res.status(401).send("Usuario ya existe");
+    }
+
+    // 3. Encriptar password usando bCrypt
+    const bcryptPassword = await encrypt(password);
 
     // 4. agregar el usuario a la base de datos
     const newUser = await pool.query(
       "INSERT INTO users(name, email, password, birthday) values($1, $2, $3, $4) RETURNING *",
-      [name, email, bcryptPassword, birthday])
+      [name, email, bcryptPassword, birthday]
+    );
 
-    token = jwtGenerator(newUser.rows[0].id, newUser.rows[0])
-    res.json({ token })
+    const token = jwtGenerator(newUser.rows[0].id, newUser.rows[0].birthday);
+    res.json({ token });
   } catch (err) {
-    console.log(err)
-    res.status(500).send("Server error")
+    console.log(err);
+    res.status(500).send("Server error");
   }
-})
+});
 
 // verificar usuario
 app.post("/login", async (req, res) => {
@@ -90,6 +96,11 @@ app.post("/login", async (req, res) => {
     if (user.rows.length === 0) {
       return res.status(401).json("Password incorrecta o email no existe")
     }
+
+    // Imprimir la consulta SQL y sus parámetros
+    const queryText = "SELECT * FROM users WHERE email = $1";
+    console.log("SQL Query:", queryText);
+    console.log("Parameters:", [email]);
 
     // 3. verificar si la clave es la misma que está almacenada en la base de datos
     const validPassword = await compare(password, user.rows[0].password)
@@ -147,3 +158,5 @@ app.get("/verify", authorization, async (req, res) => {
 app.listen(PORT, () => {
   console.log("servidor iniciado en puerto " + PORT)
 })
+
+// registrar usuario
