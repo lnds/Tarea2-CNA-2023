@@ -84,6 +84,7 @@ Prueba la conexión registrandote como usuario usando la interfaz. Si todo está
 Colocar el nombre de los integrantes del grupo y las respuestas al final de este archivo.
 
 # Integrantes del Grupo
+Felipe Zambrano
 
 # Respuesta 1
 const jwtGenerator = (userId, user) => {
