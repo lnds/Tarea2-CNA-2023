@@ -101,6 +101,9 @@ const jwtGenerator = (userId, user) => {
 }
 
 # Respuesta 2
+No permite usar YARC! con la versión gratuita de Replit, porque no genera una IP pública para probar la aplicación.
+
+"token": <generado por YARC!>
 
 # Respuesta 3
 
