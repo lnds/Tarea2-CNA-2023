@@ -86,6 +86,18 @@ Colocar el nombre de los integrantes del grupo y las respuestas al final de este
 # Integrantes del Grupo
 
 # Respuesta 1
+const jwtGenerator = (userId, user) => {
+  // genera un token jwt para el usuario dado
+  if (userId) {
+    const payload = {
+      user: userId,
+      name: user.name,
+      dateOfBirth: user.dateOfBirth
+    }
+    return jwt.sign(payload, JWT_SECRET, { expiresIn: "1hr" })
+  }
+  return "invalid token"
+}
 
 # Respuesta 2
 
