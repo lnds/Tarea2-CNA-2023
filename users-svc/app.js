@@ -19,6 +19,7 @@ const jwtGenerator = (userId, user) => {
     const payload = {
       user: userId,
       name: user.name,
+      birthday: user.birthday
     }
     return jwt.sign(payload, JWT_SECRET, { expiresIn: "1hr" })
   }

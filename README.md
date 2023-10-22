@@ -84,15 +84,40 @@ Prueba la conexión registrandote como usuario usando la interfaz. Si todo está
 Colocar el nombre de los integrantes del grupo y las respuestas al final de este archivo.
 
 # Integrantes del Grupo
+Felipe Zambrano
 
 # Respuesta 1
+const jwtGenerator = (userId, user) => {
+  // genera un token jwt para el usuario dado
+  if (userId) {
+    const payload = {
+      user: userId,
+      name: user.name,
+      dateOfBirth: user.dateOfBirth
+    }
+    return jwt.sign(payload, JWT_SECRET, { expiresIn: "1hr" })
+  }
+  return "invalid token"
+}
 
 # Respuesta 2
+No permite usar YARC! con la versión gratuita de Replit, porque no genera una IP pública para probar la aplicación.
+
+"token": <generado por YARC!>
 
 # Respuesta 3
+La vulnerabilidad en este código está relacionada con la falta de autenticación y autorización para las conexiones WebSocket en la ruta /chat. En el código actual, cualquier persona que conozca la URL del WebSocket puede conectarse al servidor y enviar mensajes al chat sin restricciones. Este es un problema de seguridad si la aplicación necesita restringir el acceso a usuarios autenticados o autorizados.
+
+Para solucionar esta vulnerabilidad, se puede implementar un sistema de autenticación y autorización para las conexiones WebSocket. A continuación, hay una forma básica de hacerlo utilizando un token de autenticación JWT:
+
+1. Nos aseguramos de tener un sistema de autenticación: Antes de que un usuario pueda conectarse al WebSocket, debe autenticarse en la aplicación y obtener un token JWT válido.
+
+2. Almacenar el token en el cliente: Después de que un usuario se autentique correctamente, el servidor debe enviar el token JWT al cliente. El cliente debe almacenar este token, por ejemplo, en las cookies o en el almacenamiento local del navegador.
+
+3. Verificar el token en el WebSocket handler: Cuando un cliente intenta conectarse al WebSocket en la ruta /chat, el servidor debe verificar el token JWT para asegurarse de que el usuario esté autenticado y tenga permisos para acceder al chat. Se puede hacer utilizando la biblioteca jsonwebtoken para verificar el token y obtener la información del usuario.
 
 # Respuesta 4
-
+Para validar que los usuarios de la aplicación tengan al menos 13 años, se necesita realizar la validación en el lado del servidor, ya que la lógica de validación debe ser segura y no confiar en el cliente. Se puede controlar esta condición cuando un usuario se registra o cuando proporciona su fecha de nacimiento durante el proceso de registro.
 
 
 
